@@ -20,7 +20,12 @@ class App:
         Verifica si hay al menos un número primo en la lista.
         Retorna True si hay un número primo, de lo contrario, False.
         """
-        pass
+        
+        for n in range(2, lista):
+            if lista % n == 0:        
+                return False
+        return True
+        
 
     # 2. Cuenta los números pares en un rango dado
     def contar_pares(inicio, fin):
@@ -28,7 +33,12 @@ class App:
         Cuenta la cantidad de números pares en el rango desde 'inicio' hasta 'fin' (inclusive).
         Retorna la cantidad de números pares.
         """
-        pass
+        count= 0
+        for pares in range(inicio+fin+1):
+            if(pares%2==0):
+                count+1
+        return count
+        
 
     # 3. Encuentra el número máximo en una lista que sea múltiplo de un valor dado
     def maximo_multiplo(lista, multiplo):
