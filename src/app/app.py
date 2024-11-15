@@ -46,7 +46,11 @@ class App:
         Encuentra y retorna el valor máximo de la lista que es múltiplo del parámetro 'multiplo'.
         Si no hay múltiplos, retorna None.
         """
-        pass
+        # Filtramos los números de la lista que sean múltiplos del valor dado
+        multiplos = [num for num in lista if num % multiplo == 0]
+        # Retornamos el máximo de los múltiplos, o None si no hay ninguno
+        return max(multiplos) if multiplos else None
+        
 
     # 4. Verifica si una palabra es palíndroma (se lee igual en ambos sentidos)
     def es_palindromo(palabra):
@@ -54,14 +58,17 @@ class App:
         Verifica si la palabra es un palíndromo (igual al leerla al revés).
         Retorna True si es palíndromo, de lo contrario, False.
         """
-        pass
+        palabra = palabra.lower()
+        return palabra == palabra[::-1]
+    
+        
 
     # 5. Calcula la suma de los primeros n números impares
     def suma_primeros_impares(n):
         """
         Calcula y retorna la suma de los primeros 'n' números impares.
         """
-        pass
+        return n ** 2
 
     # 6. Verifica si todos los elementos de una lista son únicos
     def elementos_unicos(lista):
@@ -69,21 +76,29 @@ class App:
         Verifica si todos los elementos de la lista son únicos.
         Retorna True si son únicos, de lo contrario, False.
         """
-        pass
+        return len(lista) == len(set(lista))
 
     # 7. Calcula el factorial de un número sin usar recursión
     def calcular_factorial(numero):
         """
         Calcula y retorna el factorial de 'numero' usando un ciclo.
         """
-        pass
+        resultado = 1
+        for i in range(1, numero + 1):
+            resultado *= i
+        return resultado
 
     # 8. Cuenta la cantidad de vocales en una cadena
     def contar_vocales(cadena):
         """
         Cuenta y retorna la cantidad de vocales en la cadena.
         """
-        pass
+        vocales = "aeiouAEIOU"
+        contador = 0
+        for char in cadena:
+            if char in vocales:
+                contador += 1
+        return contador
 
     # 9. Encuentra el segundo número mayor en una lista
     def segundo_mayor(lista):
@@ -91,11 +106,20 @@ class App:
         Encuentra y retorna el segundo número más grande en la lista.
         Si no existe, retorna None.
         """
-        pass
+        lista_unica = list(set(lista))
+        if len(lista_unica) < 2:
+            return None  # Retorna None si no hay suficientes elementos únicos
+        lista_unica.sort(reverse=True)
+        return lista_unica[1] 
 
     # 10. Calcula la serie de Fibonacci hasta n términos
     def fibonacci(n):
         """
         Genera y retorna una lista con los primeros 'n' términos de la serie de Fibonacci.
         """
-        pass
+        serie = []
+        a, b = 0, 1
+        for _ in range(n):
+            serie.append(a)
+            a, b = b, a + b
+        return serie
